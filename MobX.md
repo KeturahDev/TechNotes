@@ -1,4 +1,4 @@
-# About TypeScript
+# About MobX
 ### Keturah Howard, June 8th 2020
 referencing 
 - [this youtube tutorial (refered to throughout page as `father vid`)](https://www.youtube.com/watch?v=_q50BXqkAfI)
