@@ -1,4 +1,4 @@
-# About TypeScript
+# About Figma
 ### Keturah Howard, June 8th 2020
 referencing 
 - [learning how to make dynamic compnents to account for edge cases](https://help.figma.com/hc/en-us/articles/360040451373-Create-dynamic-designs-with-Auto-Layout)
