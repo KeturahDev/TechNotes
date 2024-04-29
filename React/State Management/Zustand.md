@@ -1,6 +1,6 @@
 # About Zustand
 
-### Keturah Howard, April 28th 2024
+### Keturah Smith, April 28th 2024
 
 references:
 
