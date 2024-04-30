@@ -1,6 +1,6 @@
 # Tech Notes
 
-### Keturah Howard, June 7th 2020
+### Keturah Smith, June 7th 2020
 
 ## Purpose of these files
 
