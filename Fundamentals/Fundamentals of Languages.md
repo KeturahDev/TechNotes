@@ -50,7 +50,7 @@ This is a roadmap of recommended key concepts to cover across the languages I wa
 **Next.js**
 
 - Routing
-- Server COmponents
+- Server Components
 - Server Actions
 - Caching
 - SSR / SSG
