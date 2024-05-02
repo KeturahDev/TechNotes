@@ -7,6 +7,7 @@ References:
 - [Code with Mosh Tutorial](https://members.codewithmosh.com/courses/enrolled/2187934)
 - [Official Next.js Docs](https://nextjs.org/docs)
 - [on server components](https://nextjs.org/docs/app/building-your-application/rendering/server-components#dynamic-functions)
+- [Fireship Tutorial](https://youtu.be/__mSgDEOyv8?si=k1UfvzbhAOBjsd0d)
 
 ## Basic overview
 
@@ -62,6 +63,19 @@ These allow for caching on fetched data, which means storing the data where it i
 
 The farther down that list, the slower the access, but all these are available to server components via caching.
 
+When fetching in a server component, the values are automatically cached, but you can opt out of this when using the fetch api by adding `{cache: 'no-store}` as the second argument.
+
+What if you're using an ORM and not making fetch() calls? There's a convention of a exporting a variety of vars where you can set it equal to a values:
+
+```js
+export const dynamic = "auto",
+  dynamicParams = true,
+  revalidate = 0,
+  fetchCache = "auto",
+  runtime = "nodejs",
+  preferredRegion = "auto";
+```
+
 **Rendering:**
 
 Client renders on the browser, but server component can be either statically rendered (at build time) or dynamically rendered (at request time). You can make server components dynamically render by adding something like this at the bottom of the server component file:
@@ -83,3 +97,38 @@ Also using `cookies()`, `headers()` or `searchParams` in a server component also
 Eliminates the need for POST api endpoint defined in api/blank/route.ts and calling in a component! Allows for data mutation without rerendering the whole component. Can be defined within a server component or in a seperate file and then imported.
 
 Primarily used in forms but the function can also be used to adjust data like displaying the value of likes.
+
+## Routing
+
+App router:
+
+- introduced in Next 13
+- routes surrounded by brackets are "dynamic routes", can be any wildcard value. usefule for id or username vars for detail/profile pages.
+- surround routes (folders) with parenthasis to be ignored by the routing system
+
+reserved file names:
+
+- page.ts
+- loading.ts
+- layout.ts
+- not-found.ts
+
+## Incremental Static Regeneration (ISR)
+
+Revalidates the data every number of seconds.
+
+```js
+const res = await fetch("sjdhgkljhdg/dlfkjgh/dfjgh", {
+  next: { revalidate: 10 },
+});
+```
+
+## Static Regeneration
+
+[writing this later]
+
+### Quick fact dump
+
+---
+
+router.refresh() updated the router with new information without a full page refresh. Great for calling right after api calls .
