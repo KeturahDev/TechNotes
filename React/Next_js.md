@@ -90,6 +90,24 @@ Also using `cookies()`, `headers()` or `searchParams` in a server component also
 
 > "searchParams: Using the searchParams prop on a Page will opt the page into dynamic rendering at request time."
 
+### SSR vs SSG
+
+Server Side Rendering vs Static Site Generation.
+
+SSR:
+
+- SSR dynamically generates content per request
+- process of rendering web pages on the server instead of the client’s browser.
+- beneficial for content-rich applications and situations where real-time data is crucial.
+- more suitable for frequently updated content.
+
+SSG:
+
+- SSG serves pre-built pages
+- SSG can have an edge due to faster load times when it comes to SEO
+
+> When implementing SSR or SSG in Next.js, consider the nature of your content and user experience. SSR is ideal for dynamic, user-specific content, while SSG suits static websites like blogs or documentation sites. Avoid common pitfalls such as over-fetching data in SSR or under-utilizing static optimizations in SSG.
+
 ## Server Actions
 
 [Good fast paced tutorial](https://youtu.be/O94ESaJtHtM?si=d8mrSkKOXixSuoyj). [Official Next docs](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations)
@@ -118,7 +136,7 @@ reserved file names:
 Revalidates the data every number of seconds.
 
 ```js
-const res = await fetch("sjdhgkljhdg/dlfkjgh/dfjgh", {
+const res = await fetch("domain/api/something", {
   next: { revalidate: 10 },
 });
 ```
@@ -132,3 +150,9 @@ const res = await fetch("sjdhgkljhdg/dlfkjgh/dfjgh", {
 ---
 
 router.refresh() updated the router with new information without a full page refresh. Great for calling right after api calls .
+
+### How to start proj
+
+---
+
+- npx create-next-app@latest
