@@ -19,6 +19,78 @@ What is it? The primary programming language for interactive and dynamic DOM man
 - Fetch API
 - Asynchronis Code (promises, async / await)
 - DOM / Web platform
+- Bracket notation
+
+## Asynchronis Code
+
+[Doc for the difference.](https://www.geeksforgeeks.org/difference-between-promise-and-async-await-in-node-js/)
+
+```js
+const promise = new Promise(function (resolve, reject) {
+  const string1 = "geeksforgeeks";
+  const string2 = "geeksforgeeks";
+  if (string1 === string2) {
+    resolve();
+  } else {
+    reject();
+  }
+});
+```
+
+### Promises
+
+Promise is an object representing intermediate state of operation which is guaranteed to complete its execution at some point in future.
+
+Promises have 3 states: resolved, rejected and pending.
+
+Error handling is done with .then() and .catch()
+
+```js
+promise
+  .then(function () {
+    console.log("Promise resolved successfully");
+  })
+  .catch(function () {
+    console.log("Promise is rejected");
+  });
+```
+
+### Async Await
+
+Syntactic sugar for promises.
+
+The await will return either the resolved or rejected state.
+
+Error handling is managed with a try/catch wrapper.
+
+```js
+async function demoPromise() {
+  try {
+    let message = await helperPromise();
+    console.log(message);
+  } catch (error) {
+    console.log("Error: " + error);
+  }
+}
+```
+
+## Fetch API
+
+A JavaScript interface for accessing and manipulating application requests and responses.
+
+Quick about:
+
+- Promise based
+- easily used in [service workers]()
+- integrates advanced HTTP concepts like CORS
+
+```js
+async function logMovies() {
+  const response = await fetch("http://example.com/movies.json");
+  const movies = await response.json();
+  console.log(movies);
+}
+```
 
 ## Array
 
@@ -198,6 +270,108 @@ console.log(plants);
 
 </details>
 
+<details>
+  <summary>.forEach()</summary>
+
+### _.forEach()_
+
+For each indicy in the array, the given function is executed. Does not return another array.
+
+**_Use When_**: Wanting to execute a function for each indicy in an array.
+
+```js
+const array1 = ["a", "b", "c"];
+
+array1.forEach((element) => console.log(element));
+```
+
+</details>
+
+<details>
+  <summary>.filter()</summary>
+
+### _.filter()_
+
+Return an array made of up indicies that resolve the given function as truthy.
+
+**_Use When_**: Wanting to get a filtered array of values.
+
+```js
+const words = ["spray", "elite", "exuberant", "destruction", "present"];
+
+const result = words.filter((word) => word.length > 6);
+
+console.log(result);
+// Expected output: Array ["exuberant", "destruction", "present"]
+```
+
+</details>
+
+<details>
+  <summary>.reduce()</summary>
+
+### _.reduce()_
+
+Returns a single value made up of running all the values of the given array through the provided function.
+
+**_Use When_**: Wanting to have a single value returned from iterating over your array.
+
+```js
+const array1 = [1, 2, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = array1.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+
+console.log(sumWithInitial);
+// Expected output: 10
+```
+
+</details>
+
+<details>
+  <summary>.sort()</summary>
+
+### _.sort()_
+
+Returns a reordered array based on the sort order function passed in.
+
+**_Use When_**: Needing to have the indicies in an array in a specific order.
+
+```js
+const items = [
+  { name: "Edward", value: 21 },
+  { name: "Sharpe", value: 37 },
+  { name: "And", value: 45 },
+  { name: "The", value: -12 },
+  { name: "Magnetic", value: 13 },
+  { name: "Zeros", value: 37 },
+];
+
+// sort by value
+items.sort((a, b) => a.value - b.value);
+
+// sort by name
+items.sort((a, b) => {
+  const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+  const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+});
+```
+
+</details>
+
 ## Object:
 
 A datatype that represents keyed collection and more complex entities.
@@ -289,6 +463,27 @@ console.log(Object.keys(object1));
 
 </details>
 <details>
+  <summary>.values()</summary>
+
+### _.values()_
+
+The Object.values() static method returns an array of a given object's values.
+
+**_Use When_**: Wanting to do something with a list of keys in an object
+
+```js
+const object1 = {
+  a: "somestring",
+  b: 42,
+  c: false,
+};
+
+console.log(Object.values(object1));
+// Expected output: Array ["somestring", 42, false]
+```
+
+</details>
+<details>
   <summary>.seal()</summary>
 
 ### _.seal()_
@@ -323,6 +518,10 @@ AKA ECMAScript6. The 2nd major revision to javascript. Rolled out in 2015.
 - introduced the For / Of Loop
 - javascript classes
 - promises (!? I didnt know that it was that late)
+
+### Spread Operators
+
+- cover order for overwriting key values {...ob1, key: "lastword"}
 
 ### Map Objects
 
