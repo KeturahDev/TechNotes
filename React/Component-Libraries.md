@@ -19,7 +19,12 @@ export default function () {
   return (
     <html>
       <body>
-        <Theme>
+        <Theme
+          accentColor="crimson"
+          grayColor="sand"
+          radius="large"
+          scaling="95%"
+        >
           <MyApp />
         </Theme>
       </body>
@@ -46,3 +51,37 @@ export default function MyApp() {
 <!-- ### Projects Used:
 
 - []() -->
+
+## Daisy UI
+
+A tailwind CSS component library.
+
+### Set up:
+
+- install at root of project: `npm i -D daisyui@latest`
+- Add daisy UI to tailwind.config.js:
+
+```js
+module.exports = {
+  //...
+  plugins: [require("daisyui")],
+};
+```
+
+- To implement themes:
+
+```js
+plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["forest", "winter", "emerald"],
+  },
+```
+
+- Use components in app by using keywords in tailwind:
+
+```js
+<button className="btn btn-info">Info</button>
+<button className="btn btn-success">Success</button>
+<button className="btn btn-warning">Warning</button>
+<button className="btn btn-error">Error</button>
+```
