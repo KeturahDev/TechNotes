@@ -16,6 +16,32 @@ On **migration**, prisma will generate the changes made in the schema in the dat
 - prisma format -> makes the prisma schemas "pretty"
 - prisma migrate dev -> do after making changes to the schema file
 
+## Setup
+
+- install prisma at root of project: `npm i prisma`
+- initialize prisma in the project: `npx prisma init`
+  - this creates a prisma folder, and generates a schema.prisma file in the folder.
+- change the datasource provider to that of your choosing
+- in .env file, set DATABASE_URL to the database url you want to interact with
+- implement models in the schema.prisma
+
+```
+model Issue {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255)
+  description String   @db.Text
+  status      Status   @default(OPEN)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum Status {
+  OPEN
+  IN_PROGRESS
+  CLOSED
+}
+```
+
 ### Projects Used:
 
 - [issue tracker](https://github.com/KeturahDev/issue-tracker)

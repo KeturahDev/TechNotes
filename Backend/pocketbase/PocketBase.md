@@ -55,6 +55,11 @@ A backend service.
 - mount volume to pb-data directory - allows for adding more GBs for scale
 - Set up SystemD Service: automatically restarts pocketbase whenever server reboots
 
+tutorials:
+
+- [Deploy PocketBase on Railway
+  ](https://www.shrey.com/blog/deploy-pocketbase-on-railway)
+
 ### Projects Used:
 
 - []()
