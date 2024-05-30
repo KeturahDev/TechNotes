@@ -42,6 +42,26 @@ enum Status {
 }
 ```
 
+## Interacting with Google Provider
+
+This is actually done through NextAuth, but for time being it will live here. It's somewhat relevent because the NextAuth needs a Prisma Adapter anyway for storing user data. But, this info will be relocated to the NextAuth Doc when it's created.
+
+<!-- TODO: Add this section to NextAuth doc -->
+
+1. Need to set up the project on https://console.developers.google.com/
+
+- click create a new prjoject by selecting dropdown in nav
+- (.. to be continued)
+
+## _When adding authorized redirects:_
+
+This is neccessary when moving from the local machine to the hosted domain. Only authorized redirects may interact with the the registered google project.
+
+- Go to https://console.developers.google.com/
+- Go to Credentials
+- Click on the Project's name under "OAuth Client IDs"
+- Add domain name in place of local host URI, following this format: http://localhost:3000/api/auth/callback/google
+
 ### Projects Used:
 
 - [issue tracker](https://github.com/KeturahDev/issue-tracker)
