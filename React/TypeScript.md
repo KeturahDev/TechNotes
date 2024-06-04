@@ -1,26 +1,30 @@
 # About TypeScript
+
 ### Keturah Howard, June 7th 2020
+
 following [this tutorial (refered to throughout page as `father link`)](https://tutorialzine.com/2016/07/learn-typescript-in-30-minutes)
-## *Description*
 
-TypeScript is a tag along language for JS that changes the development process of writing JS code so that you can comfortably transfer into writin gJS from strictly type languages, keep a closer eye on the types that are recieved and returned throughout your code, or simply add another filter of error handling to your develpment process. 
+## _Description_
 
-The way this is done is through the process of running, confirming there are no type errors, and compiling into js. 
+TypeScript is a tag along language for JS that changes the development process of writing JS code so that you can comfortably transfer into writin gJS from strictly type languages, keep a closer eye on the types that are recieved and returned throughout your code, or simply add another filter of error handling to your develpment process.
 
-## Set up / Instalation 
+The way this is done is through the process of running, confirming there are no type errors, and compiling into js.
+
+## Set up / Instalation
+
 1. in terminal/bash, install with npm
-    - ``` npm install -g typescript```
+   - ` npm install -g typescript`
 2. confiirm instilation with version check
-    - ``` tsc -v ``` *this should return a version such at '3.19.2'*
+   - `tsc -v` _this should return a version such at '3.19.2'_
 
-*unrelated but possible helpful*
-Not installing? make sure that your Node.js / npm versions are compatible. if npm was installed globally you may need to uninstall and reinstall node/npm. The first response in [this stack overflow](https://stackoverflow.com/questions/11177954/how-do-i-completely-uninstall-node-js-and-reinstall-from-beginning-mac-os-x) was helpful in this process. nvm is the suggested process of managing node installations, but I have yet to get nvm up and running. 
+_unrelated but possible helpful_
+Not installing? make sure that your Node.js / npm versions are compatible. if npm was installed globally you may need to uninstall and reinstall node/npm. The first response in [this stack overflow](https://stackoverflow.com/questions/11177954/how-do-i-completely-uninstall-node-js-and-reinstall-from-beginning-mac-os-x) was helpful in this process. nvm is the suggested process of managing node installations, but I have yet to get nvm up and running.
 
 ## Key Concepts (table of contents)
 
-- compiling
-- static typing
-- interfaces
+- Compiling
+- Static Typing
+- Interfaces
 - Classes
 - Generics
 - Modules
@@ -28,12 +32,12 @@ Not installing? make sure that your Node.js / npm versions are compatible. if np
 
 ### Compiling
 
-This is necassary given TS cannot actually compile in the browser. TS is mainly used to check for errors, and then transforms into JS when no type errors are caught. 
+This is necassary given TS cannot actually compile in the browser. TS is mainly used to check for errors, and then transforms into JS when no type errors are caught.
 
-- Easiest way is by running ```$ tsc filename.ts```
+- Easiest way is by running `$ tsc filename.ts`
 - This will create a js version of ts to compile to the browser (since ts can't compile to the browser. Cute.)
-- can do this to multiple files: ```$ tsc filename.ts filename2.ts```
-- or compile all files with wildcard: ```$ tsc *.ts```
+- can do this to multiple files: `$ tsc filename.ts filename2.ts`
+- or compile all files with wildcard: `$ tsc *.ts`
 
 ### Static Typing
 
@@ -41,26 +45,26 @@ This means declaring the type of a variable, and the compiler assures that the t
 
 examples:
 
-
 ### Interfaces
 
-These are kind of like presetting blue prints for future objects as types, so that when you refer to them within a function, you will say the name of the interface instead of the actual types... used in cases of checking types of objects and clarifying objects are as they should be in typescript. 
+These are kind of like presetting blue prints for future objects as types, so that when you refer to them within a function, you will say the name of the interface instead of the actual types... used in cases of checking types of objects and clarifying objects are as they should be in typescript.
 
 ### Classes
 
 Very similar to writing classes / models in C#. You name the class, create a constructor that state the porerties and types expected of an object of that class, and state the methods.
 
 example code from father link:
+
 ```class Menu {
   // Our properties:
   // By default they are public, but can also be private or protected.
   items: Array<string>;  // The items in the menu, an array of strings.
   pages: number;         // How many pages will the menu be, a number.
 
-  // A straightforward constructor. 
+  // A straightforward constructor.
   constructor(item_list: Array<string>, total_pages: number) {
     // The this keyword is mandatory.
-    this.items = item_list;    
+    this.items = item_list;
     this.pages = total_pages;
   }
 
@@ -72,7 +76,7 @@ example code from father link:
     }
   }
 
-} 
+}
 
 // Create a new instance of the Menu class.
 var sundayMenu = new Menu(["pancakes","waffles","orange juice"], 1);
@@ -93,7 +97,7 @@ example looks like:
 // Receives one argument of type T,
 // Returns an array of type T.
 
-function genericFunc<T>(argument: T): T[] {    
+function genericFunc<T>(argument: T): T[] {
   var arrayOfT: T[] = [];    // Create empty array of type T.
   arrayOfT.push(argument);   // Push, now arrayOfT = [argument].
   return arrayOfT;
@@ -109,33 +113,38 @@ console.log(typeof arrayFromNumber[0])   // number
 ```
 
 ### Modules
+
 Helpful for making code out of small resusable pieces/components.
 
 TS cannot inherently link between files for this functionality, so third party libraries come into play: require.js for front end/browser, and CommonJS for Node.js/ backend
 
 2 files: exporter.ts / importer.ts, holding the functions that handle their referenced concepts
 
-example process: 
- 1. exporter.ts:
-``` var sayHi = function(): void {
+example process:
+
+1.  exporter.ts:
+
+```var sayHi = function(): void {
     console.log("Hello!");
 }
 
 export = sayHi;
 
 ```
+
 2. importer.ts
-``` 
+
+```
 import sayHi = require('./exporter');
 sayHi();
 ```
 
-3. now compile: ```$ tsc --module amd *.ts```
-    - --module amd informs typescript we are building modules for require.js
+3. now compile: `$ tsc --module amd *.ts`
+   - --module amd informs typescript we are building modules for require.js
 
 ### 3rd Party Declaration Files
 
-When working wth libraries originally intended for JS, we need to use declaration files to make them compatible with TS. 
+When working wth libraries originally intended for JS, we need to use declaration files to make them compatible with TS.
 
 Declaration files have extention ".d.ts", and contains varrious info about library/its API.
 
