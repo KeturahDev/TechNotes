@@ -54,7 +54,7 @@ This is a roadmap of recommended key concepts to cover across the languages I wa
 - Server Actions
 - Caching
 - SSR / SSG
-- Patters & Best Practices (data fetching, serverside validation, avoiding leaks)
+- Patterns & Best Practices (data fetching, serverside validation, avoiding leaks)
 
 **React & Next.js Exosystem**
 

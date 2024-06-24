@@ -13,7 +13,7 @@ References:
 
 ### What is it?
 
-A framework for build fast search enginer friendly apps in react.
+A framework for build fast, search engine friendly apps in react.
 
 ### How does it do that?
 

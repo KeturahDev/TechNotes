@@ -122,30 +122,16 @@ const countStore = configureStore({ reducer: countSlice.reducer })
 </tr>
 </table>
 
-### Immutable State
+**Immutable State**: State in Zustand is immutable, meaning you create new state objects instead of mutating existing ones.
 
-State in Zustand is immutable, meaning you create new state objects instead of mutating existing ones.
+**Centralized Store**: Zustand has a single, centralized store that holds the entire state of your application.
 
-### Centralized Store
+**Hooks-based API**: Zustand uses React hooks to interact with the store, making it easy to integrate with functional components.
 
-Zustand has a single, centralized store that holds the entire state of your application.
+**Middleware Support**: Like Redux, Zustand supports middleware for handling side effects, logging, and other cross-cutting concerns.
 
-### Hooks-based API
+**Devtools Integration**: Zustand integrates with the Redux DevTools extension, allowing you to inspect and debug your application's state.
 
-Zustand uses React hooks to interact with the store, making it easy to integrate with functional components.
+**Minimal Boilerplate**: Zustand aims to be a minimal, boilerplate-free solution for state management, making it easy to get started and maintain.
 
-### Middleware Support
-
-Like Redux, Zustand supports middleware for handling side effects, logging, and other cross-cutting concerns.
-
-### Devtools Integration
-
-Zustand integrates with the Redux DevTools extension, allowing you to inspect and debug your application's state.
-
-### Minimal Boilerplate
-
-Zustand aims to be a minimal, boilerplate-free solution for state management, making it easy to get started and maintain.
-
-### Modular Store
-
-Zustand supports splitting your store into multiple slices, making it easier to manage and scale your application's state as it grows.
+**Modular Store**: Zustand supports splitting your store into multiple slices, making it easier to manage and scale your application's state as it grows.
