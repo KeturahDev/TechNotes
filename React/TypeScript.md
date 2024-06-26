@@ -43,11 +43,55 @@ This is necassary given TS cannot actually compile in the browser. TS is mainly 
 
 This means declaring the type of a variable, and the compiler assures that the types of the content and script match as expected.
 
-examples:
+### Type
+
+`type` is a keyword in TypeScript that we can use to define the shape of data.
+
+**Basic Types in TS:**
+
+- String
+- Boolean
+- Number
+- Array
+- Tuple
+- Enum
+- Advanced types
+
+**Primitive Types in TS**:
+number, string, boolean, null, and undefined
+
+"Type aliases" provide an alternate name for an existing type:
+
+```
+type MyNumber = number;
+type User = {
+  id: number;
+  name: string;
+  email: string;
+}
+```
+
+The two type aliases below represent alternative names for the same union type: string | number. While the underlying type is the same, the different names express different intents, which makes the code more readable.
+
+```
+type ErrorCode = string | number;
+type Answer = string | number;
+```
 
 ### Interfaces
 
-These are kind of like presetting blue prints for future objects as types, so that when you refer to them within a function, you will say the name of the interface instead of the actual types... used in cases of checking types of objects and clarifying objects are as they should be in typescript.
+These are kind of like presetting blue prints for future _objects_ as types, so that when you refer to them within a function, you will say the name of the interface instead of the actual types... used in cases of checking types of objects and clarifying objects are as they should be in typescript.
+
+## When to use interfaces or types:
+
+- in many cases, they are interchangable, but there are times when one has an advantege over the other depending on the context.
+
+We can use define a type alias for a primitive type: `type Address = string;`...
+
+And we often combine primitive type with union type to define a type alias, to make the code more readable: `type NullOrUndefined = null | undefined;`
+
+But, we can’t use an interface to alias a primitive type. The interface can only be used for an object type.
+Therefore, when we need to define a primitive type alias, we use type.
 
 ### Classes
 
