@@ -25,7 +25,8 @@ Dataflow is unidirectional: meaning all components in react have a parent child 
 - depends on the situation if its outside of the render
 - javascript reads the falsey and doesnt compute the right side of the operator, which if there was code to do something if the value was false and you wanted to respond to that computation in the code to the right of the operator, it would not be picked up on execution
 - I avoid using it inside the render block because there was a bug for a while that resulted in 0s being shown when the left side of the operator resulted in falsey
-  What is binding: Data binding is the coupling and synchronization of two data sources
+
+**_What is binding:_** Data binding is the coupling and synchronization of two data sources
 
 **_What is Higher Order Component:_**
 

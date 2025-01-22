@@ -1,4 +1,4 @@
-# Fundamentals of Languages
+# Fundamentals of Frontend Languages and Technologies
 
 Keturah Smith, May 1st 2024
 
